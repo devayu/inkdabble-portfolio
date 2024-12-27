@@ -1,6 +1,5 @@
 import BackgroundWrapper from "@/app/components/BackgroundWrapper";
 import CategorySelector from "@/app/components/CategorySelector";
-import MouseFollow from "@/app/components/MouseFollow";
 
 const CategoryPage = () => {
   return (
