@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-
 type BackgroundWrapperProps = {
   children: React.ReactNode;
 };
@@ -10,9 +9,9 @@ const BackgroundWrapper = ({ children }: BackgroundWrapperProps) => {
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: `url('/bg1.jpg')`,
+          backgroundImage: `url('/bg2.jpg')`,
           backgroundSize: "cover",
-          opacity: "0.5",
+          opacity: "0.2",
         }}
       />
       <div className="relative z-10">{children}</div>

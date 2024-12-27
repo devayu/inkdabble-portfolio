@@ -44,7 +44,10 @@ const CategorySelector = ({ images = [] }: CategorySelectorProps) => {
                   className="absolute inset-0 flex items-center justify-center opacity-0"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 0 }}
-                  whileHover={{ opacity: 1, transition: { ease: "easeOut" } }}
+                  whileHover={{
+                    opacity: 1,
+                    transition: { ease: [0.76, 0, 0.24, 1] },
+                  }}
                 >
                   <div className="absolute inset-0 bg-black opacity-60"></div>
                   <span className="text-4xl font-bold text-white z-10 uppercase tracking-wider">

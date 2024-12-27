@@ -1,5 +1,6 @@
 import BackgroundWrapper from "@/app/components/BackgroundWrapper";
 import CategorySelector from "@/app/components/CategorySelector";
+import MouseFollow from "@/app/components/MouseFollow";
 
 const CategoryPage = () => {
   return (
@@ -13,10 +14,10 @@ const CategoryPage = () => {
             path: "fashion",
           },
           {
-            name: "design",
+            name: "graphic",
             imgPath: "/design-category.jpg",
-            subtitle: "Design portfolio",
-            path: "design",
+            subtitle: "Graphic portfolio",
+            path: "graphic",
           },
         ]}
       ></CategorySelector>
