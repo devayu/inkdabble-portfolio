@@ -3,9 +3,12 @@
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { background, color, opacity } from "@/app/utils/animations";
+import { CiMail } from "react-icons/ci";
+
 import { useState } from "react";
 import Nav from "@/app/components/Nav";
 import { cn } from "@/app/utils/utils";
+import { EMAIL } from "@/app/constants";
 const Header = () => {
   const [isActive, setActive] = useState(false);
   return (
@@ -50,9 +53,9 @@ const Header = () => {
             </motion.p>
           </div>
         </div>
-        <Link href="#" className="md:text-xl font-medium">
-          Contact
-        </Link>
+        <a href={`mailto:${EMAIL}`}>
+          <CiMail size={28} />
+        </a>
       </div>
       <AnimatePresence mode="wait">{isActive && <Nav></Nav>}</AnimatePresence>
       {/* //TODO: Look into this later */}

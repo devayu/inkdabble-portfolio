@@ -1,3 +1,4 @@
+import AboutSection from "@/app/components/AboutSection";
 import BackgroundWrapper from "@/app/components/BackgroundWrapper";
 import CategorySelector from "@/app/components/CategorySelector";
 
@@ -20,6 +21,7 @@ const CategoryPage = () => {
           },
         ]}
       ></CategorySelector>
+      <AboutSection />
     </BackgroundWrapper>
   );
 };

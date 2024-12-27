@@ -22,7 +22,7 @@ const CategorySelector = ({ images = [] }: CategorySelectorProps) => {
         exit={{ opacity: 0, y: 20 }}
         transition={{ duration: 0.5 }}
       >
-        <motion.div className="flex h-screen items-center justify-evenly">
+        <motion.div className="flex h-screen items-center gap-4 p-4">
           {images.map(({ name, imgPath, subtitle, path }) => {
             return (
               <motion.div
@@ -38,7 +38,7 @@ const CategorySelector = ({ images = [] }: CategorySelectorProps) => {
                   alt={name}
                   width={800}
                   height={800}
-                  className="w-full h-full"
+                  // className="w-full h-full"
                 ></Image>
                 <motion.div
                   className="absolute inset-0 flex items-center justify-center opacity-0"

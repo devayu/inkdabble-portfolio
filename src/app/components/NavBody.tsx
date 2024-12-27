@@ -3,6 +3,8 @@ import { motion } from "motion/react";
 import { translate } from "@/app/utils/animations";
 import { useState } from "react";
 import { blur } from "@/app/utils/animations";
+import { cn } from "@/app/utils/utils";
+import { ELEVATE } from "@/app/constants";
 
 type NavBodyProps = {
   navlinks: {
@@ -44,7 +46,12 @@ const NavBody = ({ navlinks }: NavBodyProps) => {
             onMouseLeave={() => setHoverLink({ isActive: false, index })}
             href={href}
             key={`lnk_${href}`}
-            className="text-3xl md:text-5xl uppercase overflow-hidden"
+            className={cn(
+              "text-3xl md:text-5xl uppercase overflow-hidden",
+              href.includes(ELEVATE)
+                ? "bg-black text-white opacity-80 px-2"
+                : ""
+            )}
           >
             <motion.p
               variants={blur}
