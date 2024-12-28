@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { translate } from "@/app/utils/animations";
@@ -5,6 +6,7 @@ import { useState } from "react";
 import { blur } from "@/app/utils/animations";
 import { cn } from "@/app/utils/utils";
 import { ELEVATE } from "@/app/constants";
+import { usePathname } from "next/navigation";
 
 type NavBodyProps = {
   navlinks: {
@@ -21,7 +23,8 @@ const NavBody = ({ navlinks }: NavBodyProps) => {
     isActive: false,
     index: 0,
   });
-  const getChars = (title: string) => {
+  const currentUrl = usePathname();
+  const getChars = (title: string, isActive: boolean) => {
     return title.split("").map((letter: string, index: number) => {
       return (
         <motion.span
@@ -31,6 +34,7 @@ const NavBody = ({ navlinks }: NavBodyProps) => {
           initial="initial"
           animate="enter"
           exit="exit"
+          className={isActive && index === 0 ? "underline" : ""}
         >
           {letter}
         </motion.span>
@@ -40,6 +44,8 @@ const NavBody = ({ navlinks }: NavBodyProps) => {
   return (
     <div className="flex flex-wrap mt-10 gap-8">
       {navlinks.map(({ href, title }, index) => {
+        const isActive = currentUrl === href;
+
         return (
           <Link
             onMouseOver={() => setHoverLink({ isActive: true, index })}
@@ -63,7 +69,7 @@ const NavBody = ({ navlinks }: NavBodyProps) => {
                   : "exit"
               }
             >
-              {getChars(title)}
+              {getChars(title, isActive)}
             </motion.p>
           </Link>
         );

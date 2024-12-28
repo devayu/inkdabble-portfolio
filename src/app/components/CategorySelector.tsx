@@ -2,6 +2,8 @@
 import Image from "next/image";
 import { AnimatePresence, motion } from "motion/react";
 import { useRouter } from "next/navigation";
+import designCategory from "../../../public/design-category.jpg";
+import fashionCategory from "../../../public/fashion-category.jpg";
 
 type CategorySelectorProps = {
   images: {
@@ -11,7 +13,20 @@ type CategorySelectorProps = {
     path: string;
   }[];
 };
-
+const images = [
+  {
+    name: "fashion",
+    imgPath: "/fashion-category.jpg",
+    subtitle: "Fashion portfolio",
+    path: "fashion",
+  },
+  {
+    name: "graphic",
+    imgPath: "/design-category.jpg",
+    subtitle: "Graphic portfolio",
+    path: "graphic",
+  },
+];
 const CategorySelector = ({ images = [] }: CategorySelectorProps) => {
   const router = useRouter();
   return (
@@ -22,7 +37,10 @@ const CategorySelector = ({ images = [] }: CategorySelectorProps) => {
         exit={{ opacity: 0, y: 20 }}
         transition={{ duration: 0.5 }}
       >
-        <motion.div className="flex h-screen items-center gap-4 p-4">
+        <motion.h1 className="lg:hidden text-2xl font-bold text-center px-4 block">
+          Select an image below to explore my work
+        </motion.h1>
+        <motion.div className="flex min-h-screen items-center gap-4 p-4 lg:justify-evenly flex-col lg:flex-row">
           {images.map(({ name, imgPath, subtitle, path }) => {
             return (
               <motion.div
@@ -34,11 +52,13 @@ const CategorySelector = ({ images = [] }: CategorySelectorProps) => {
                 }}
               >
                 <Image
-                  src={imgPath}
+                  src={name === "fashion" ? fashionCategory : designCategory}
                   alt={name}
-                  width={800}
-                  height={800}
-                  // className="w-full h-full"
+                  placeholder="blur"
+                  quality={50}
+                  width={700}
+                  height={700}
+                  className="h-full"
                 ></Image>
                 <motion.div
                   className="absolute inset-0 flex items-center justify-center opacity-0"

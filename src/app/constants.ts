@@ -8,7 +8,7 @@ export const NAV_LINKS = [
     title: "Home",
   },
   {
-    href: "/#about",
+    href: "/about",
     title: "About",
   },
   {

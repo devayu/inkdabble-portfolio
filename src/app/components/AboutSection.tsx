@@ -75,7 +75,7 @@ const AboutSection = () => {
   return (
     <section
       id="about"
-      className="h-screen p-4 flex items-center justify-center jus"
+      className="min-h-screen p-4 flex items-center justify-center"
     >
       <BentoGrid>
         {items.map((item, i) => (
